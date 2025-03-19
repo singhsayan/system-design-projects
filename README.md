@@ -16,5 +16,5 @@ I use a combination of **highly scalable technologies** tailored to each project
 - **Database:** SQL (PostgreSQL, MySQL), NoSQL (Redis for caching)  
 - **Infrastructure:** Docker, Load Balancing, Replication
 
-- ## About Me  
+ ## About Me  
 I am passionate about **system design, scalability, and high-performance architecture**. This repository is a **collection of my design approaches** to solving complex engineering problems.  
