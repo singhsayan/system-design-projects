@@ -1,11 +1,10 @@
-Gmail Service Design
 Gmail-Service System Design
 
-Overview
+## Overview ##
 
 A scalable and efficient email system designed for high performance, security, and availability. It supports sending, receiving, and managing emails while handling millions of users reliably.
 
-Key Features
+## Key Features ## 
 
 Email Management – Send, receive, and organize emails.
 Scalability – Load balancing, replication, and optimized indexing.
@@ -22,7 +21,7 @@ Search Service – Indexes emails for efficient searches.
 Notification Service – Sends alerts for new emails.
 More details: See HLD.pdf.
 
-Low-Level Design (LLD)
+## Low-Level Design (LLD) ## 
 
 Key Design Aspects
 Class Diagrams – Defines entities like User, Email, Attachment, and Folder.
@@ -30,7 +29,7 @@ Sequence Diagrams – Outlines request flow for email operations.
 Database Schema – SQL schema optimized with indexing.
 More details: See LLD.pdf.
 
-Capacity Estimation
+## Capacity Estimation ## 
 
 Designed to handle millions of emails daily with:
 
@@ -39,7 +38,7 @@ Bandwidth – Efficient data transfer using compression.
 Compute Resources – Horizontally scaled backend services.
 More details: See Capacity-Estimation.md.
 
-Trade-offs and Design Decisions
+## Trade-offs and Design Decisions ## 
 
 Rate Limiting Strategy
 Token Bucket chosen over Leaky Bucket for better burst handling.
@@ -54,33 +53,33 @@ RDB (Snapshotting) for efficient backups.
 AOF (Append-Only File) for durability.
 More details: See Tradeoffs.md.
 
-Scaling Strategy
+## Scaling Strategy ## 
 
 Load Balancing – Distributes traffic efficiently.
 Database Replication – Ensures availability and fault tolerance.
 Indexing – Improves search performance.
 More details: See Scaling-Strategy.md.
 
-Deployment Strategy
+## Deployment Strategy ## 
 
 Docker – Containerized for portability.
 Virtual Machines (VMs) – Traditional deployment with manual configurations.
 More details: See Deployment-Strategy.md.
 
-Monitoring and Logging
+## Monitoring and Logging ## 
 
 Logging – Tracks errors and requests.
 Server Monitoring – Monitors CPU and memory usage.
 More details: See Monitoring-Logging.md.
 
-Security Considerations
+## Security Considerations ## 
 
 Authentication – Secure login with encrypted passwords.
 Rate Limiting – Prevents excessive API requests.
 Data Encryption – Emails encrypted during storage and transmission.
 More details: See Security-Considerations.md.
 
-Conclusion
+## Conclusion ## 
 
 A scalable, highly available, and secure email system with a modular architecture and SQL-based storage. This design ensures performance, reliability, and fault tolerance at an enterprise level.
 
