@@ -2,104 +2,108 @@ Gmail-Service System Design
 
 Overview
 
-I designed the Gmail-Service to be a scalable and efficient email system that allows users to send, receive, and manage emails reliably. The system follows a well-structured, modular architecture with a focus on performance, security, and availability.
+A scalable and efficient email system designed for performance, security, and high availability. It supports sending, receiving, and managing emails while handling millions of users reliably.
 
-Features
-	1.	Email Management – Users can send, receive, and organize emails.
-	2.	Scalability – Designed to handle a large number of concurrent users with load balancing and replication.
-	3.	Search Optimization – Emails are indexed for fast retrieval.
-	4.	Security – Encryption, authentication, and rate limiting for protection.
-	5.	High Availability – Redundant storage and backup strategies for reliability.
+Key Features
+	•	Email Management – Send, receive, and organize emails.
+	•	Scalability – Load balancing, replication, and optimized indexing.
+	•	Fast Search – Indexed emails for quick retrieval.
+	•	Security – Authentication, encryption, and rate limiting.
+	•	High Availability – Redundant storage and backup strategies.
 
-High-Level Design
+⸻
 
-The architecture follows a modular service-based approach to ensure maintainability and performance. Key components include:
-	•	API Layer – Handles user requests and routes them to backend services.
+1) High-Level Design (HLD)
+
+Architecture Components:
+	•	API Gateway – Handles user requests.
 	•	Mail Processing Service – Manages email sending, receiving, and storage.
-	•	Storage Service – Uses a relational database (SQL) for storing emails and user data.
-	•	Search Service – Indexes emails for efficient retrieval.
-	•	Notification Service – Sends notifications for new emails.
+	•	Storage Service – SQL-based database for emails and user data.
+	•	Search Service – Indexes emails for efficient searches.
+	•	Notification Service – Sends alerts for new emails.
 
-The HLD.pdf file provides further details on architectural components and interactions.
+ More Details: See HLD.pdf.
 
-Low-Level Design
+⸻
 
-The system is implemented using structured class-based programming with well-defined services. It includes:
-	•	Class Diagrams – Defining core entities like User, Email, Attachment, and Folder.
-	•	Sequence Diagrams – Outlining request flow for email operations.
-	•	Database Schema – SQL-based schema optimized with indexing and normalization.
+2) Low-Level Design (LLD)
 
-The LLD.pdf file contains a detailed breakdown of these design aspects.
+Key Design Aspects:
+	•	Class Diagrams – Entities like User, Email, Attachment, Folder.
+	•	Sequence Diagrams – Request flow for email operations.
+	•	Database Schema – Optimized SQL schema with indexing.
 
-Capacity Estimation
+More Details: See LLD.pdf.
 
-To handle millions of emails daily, I designed the system with:
-	•	Storage – SQL-based relational database with optimized indexing.
-	•	Bandwidth – Efficient data transmission using compression.
+⸻
+
+3) Capacity Estimation
+
+Designed to handle millions of emails daily with:
+	•	Storage – SQL-based with optimized indexing.
+	•	Bandwidth – Efficient data transfer using compression.
 	•	Compute Resources – Horizontally scaled backend services.
 
-More details are available in the Capacity-Estimation.md file.
+ More Details: See Capacity-Estimation.md.
 
-Trade-offs
+⸻
 
-I considered multiple trade-offs while designing the system:
-	1.	Rate Limiting Strategy
-	•	Token Bucket vs. Leaky Bucket: I chose the Token Bucket approach as it provides better burst handling, allowing short-term high loads while still controlling the request rate.
-	•	Global vs. Per-User Rate Limiting: A per-user rate limiting strategy ensures fair usage while preventing individual abuse.
-	2.	Service Manager Trade-off
-	•	Centralized vs. Decentralized Service Management:
-	•	A centralized service manager makes monitoring and control easier but introduces a single point of failure.
-	•	A decentralized approach offers better fault tolerance but is more complex.
-	•	I opted for a centralized service manager with failover mechanisms to balance control and availability.
-	3.	Redis Trade-off
-	•	Caching Strategy:
-	•	Write-Through Caching ensures consistency but increases write latency.
-	•	Lazy Loading (Cache-aside) reduces write latency but can lead to stale reads.
-	•	I used Lazy Loading for improved performance, with eviction policies to prevent outdated cache entries.
-	•	Persistence Considerations:
-	•	AOF (Append-Only File) vs. RDB (Snapshotting):
-	•	RDB is efficient for backups but may lose recent data in case of failure.
-	•	AOF provides durability but increases disk writes.
-	•	I combined both (AOF for durability, RDB for snapshots).
+4) Trade-offs & Design Decisions
 
-More details on these trade-offs are available in the Tradeoffs.md file.
+Rate Limiting Strategy
+	•	Token Bucket chosen over Leaky Bucket for better burst handling.
+	•	Per-user rate limiting to prevent abuse.
 
-Scaling Strategy
+Service Manager Trade-offs
+	•	Centralized Service Manager for easier monitoring.
+	•	Failover mechanisms to prevent a single point of failure.
 
-To support large-scale operations, I implemented:
-	•	Load Balancing – Distributes traffic efficiently among multiple servers.
-	•	Database Replication – Ensures data availability and reliability.
-	•	Indexing – Improves search and retrieval performance.
+Redis Trade-offs
+	•	Lazy Loading (Cache-aside) for better performance.
+	•	Hybrid Persistence
+	•	RDB (Snapshotting) for efficient backups.
+	•	AOF (Append-Only File) for durability.
 
-The Scaling-Strategy.md file provides further insights.
+ More Details: See Tradeoffs.md.
 
-Deployment Strategy
+⸻
 
-The system is deployed using:
-	•	Docker for containerization – Ensures portability and consistency.
-	•	Manual Deployment on Virtual Machines – Uses traditional deployment without automation.
+5) Scaling Strategy
+	•	Load Balancing – Distributes traffic efficiently.
+	•	Database Replication – Ensures availability and fault tolerance.
+	•	Indexing – Improves search performance.
 
-The Deployment-Strategy.md file contains the full deployment plan.
+More Details: See Scaling-Strategy.md.
 
-Monitoring and Logging
+⸻
 
-To ensure system reliability, I implemented:
-	•	Basic Logging Mechanisms – Helps track errors and requests.
-	•	Server Monitoring – CPU and memory usage tracking via system logs.
+6) Deployment Strategy
+	•	Docker – Containerized for portability.
+	•	Virtual Machines (VMs) – Traditional deployment with manual configurations.
 
-Details are available in the Monitoring-Logging.md file.
+More Details: See Deployment-Strategy.md.
 
-Security Considerations
+⸻
 
-The system follows standard security practices, including:
+7) Monitoring & Logging
+	•	Logging – Tracks errors and requests.
+	•	Server Monitoring – Monitors CPU and memory usage.
+
+ More Details: See Monitoring-Logging.md.
+
+⸻
+
+8) Security Considerations
 	•	Authentication – Secure login with encrypted passwords.
 	•	Rate Limiting – Prevents excessive API requests.
-	•	Data Encryption – Emails are encrypted during transmission and storage.
+	•	Data Encryption – Emails encrypted during storage and transmission.
 
-The Security-Considerations.md file includes a complete breakdown.
+ More Details: See Security-Considerations.md.
+
+⸻
 
 Conclusion
 
-This project focuses on designing a reliable, scalable, and secure email system using a modular architecture with an SQL database. The documentation provides a complete overview of system components, trade-offs, and deployment strategies.
+A scalable, highly available, and secure email system with a modular architecture and SQL-based storage. This design ensures performance, reliability, and fault tolerance at a FAANG-level standard.
 
-For further details, refer to the individual documentation files in this repository.
+For further details, check the documentation files. 
