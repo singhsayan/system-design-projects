@@ -22,7 +22,7 @@ A **scalable, real-time weather forecasting system** designed to provide **high 
 - **Notification Service** – Sends alerts based on severe weather conditions.  
 - **Service Manager** – Coordinates microservices and handles failover mechanisms.  
 
-📄 **More details:** See **HLD.pdf**.  
+ **More details:** See **HLD.pdf**.  
 
 ## Low-Level Design (LLD) ##  
 
@@ -31,7 +31,7 @@ A **scalable, real-time weather forecasting system** designed to provide **high 
 - **Sequence Diagrams** – Outlines request flow for fetching and processing weather data.  
 - **Database Schema** – Optimized for high-throughput read/write operations.  
 
-📄 **More details:** See **LLD.pdf**.  
+**More details:** See **LLD.pdf**.  
 
 ## Capacity Estimation ##  
 
@@ -41,7 +41,7 @@ Designed to process **millions of weather data points per day** with:
 - **Bandwidth** – Optimized with data compression techniques.  
 - **Compute Resources** – Auto-scaled backend services for handling peak traffic.  
 
-📄 **More details:** See **Capacity-Estimation.pdf**.  
+**More details:** See **Capacity-Estimation.pdf**.  
 
 ## Trade-offs and Design Decisions ##  
 
@@ -57,7 +57,7 @@ Designed to process **millions of weather data points per day** with:
 - **Hybrid SQL-NoSQL approach** for balancing consistency and speed.  
 - **Redis caching** for low-latency reads.  
 
-📄 **More details:** See **Tradeoffs.pdf**.  
+**More details:** See **Tradeoffs.pdf**.  
 
 ## Scaling Strategy ##  
 
@@ -65,7 +65,7 @@ Designed to process **millions of weather data points per day** with:
 - **Database Replication** – Ensures data availability and fault tolerance.  
 - **Sharding** – Optimized storage for handling massive weather datasets.  
 
-📄 **More details:** See **Scaling-Strategy.pdf**.  
+**More details:** See **Scaling-Strategy.pdf**.  
 
 ## Deployment Strategy ##  
 
@@ -73,7 +73,7 @@ Designed to process **millions of weather data points per day** with:
 - **Kubernetes** – Orchestrates microservices efficiently.  
 - **Cloud-based Deployment** – Supports AWS/GCP for global scalability.  
 
-📄 **More details:** See **Deployment-Strategy.pdf**.  
+**More details:** See **Deployment-Strategy.pdf**.  
 
 ## Security Considerations ##  
 
@@ -81,7 +81,7 @@ Designed to process **millions of weather data points per day** with:
 - **Rate Limiting** – Prevents excessive API requests and abuse.  
 - **Data Encryption** – Weather data encrypted during storage and transmission.  
 
-📄 **More details:** See **Security-Considerations.pdf**.  
+**More details:** See **Security-Considerations.pdf**.  
 
 ## Conclusion ##  
 
