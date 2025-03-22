@@ -4,13 +4,13 @@ This repository contains **scalable, high-performance system designs** focused o
 
 ## Projects  
 
-### 1️⃣ **Gmail-Service System Design**  
+### 1) **Gmail-Service System Design**  
 A **scalable email system** designed for **performance, security, and high availability**.  
 - **Key Components:** API Gateway, Mail Processing, Storage, Search.  
 - **Optimized Storage:** SQL-based with indexing for fast retrieval.  
 - **Trade-offs:** Rate limiting, caching strategies, and service management.  
 
-### 2️⃣ **Distributed Weather App**   
+### 2) **Distributed Weather App**   
 A **highly scalable, real-time weather forecasting system** designed using a **microservices architecture**.  
 - **Key Components:** Gateway Service, Service Manager, Weather Data Services (Temperature, Wind, Humidity), Notifications.  
 - **Data Storage:** SQL for user profiles and notifications, NoSQL for real-time weather data.  
@@ -28,4 +28,4 @@ I use a combination of **highly scalable technologies** tailored to each project
 ## About Me  
 I am passionate about **system design, scalability, and high-performance architecture**. This repository is a **collection of my design approaches** to solving complex engineering problems.  
 
-🚀 **Let's build scalable systems!**  
+**Let's build scalable systems!**  
